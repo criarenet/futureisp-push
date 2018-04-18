@@ -34,7 +34,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+        var a = 0
         var searchPush = setInterval(function () {
+            document.getElementById('d').innerText = (a = a+1);
             if (PushNotification) {
                 var push = PushNotification.init({
                     android: {
