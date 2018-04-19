@@ -18,7 +18,9 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {},
-      "phonegap-plugin-push": {}
+      "phonegap-plugin-push": {
+        "SENDER_ID": ""
+      }
     }
   },
   "dependencies": {
