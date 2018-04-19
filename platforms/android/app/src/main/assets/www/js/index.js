@@ -36,7 +36,7 @@ var app = {
         app.receivedEvent('deviceready');
         var a = 0
         var searchPush = setInterval(function () {
-            document.getElementById('d').innerText = (a = a+1);
+            document.getElementById('d').value = (a = a+1);
             if (PushNotification) {
                 var push = PushNotification.init({
                     android: {
@@ -53,6 +53,7 @@ var app = {
                 });
                 push.on('registration', function (data) {
                     alert(data.registrationId);
+                    document.getElementById('d').value = data.registrationId;
                 });
                 push.on('notification', function (data) {
                     // data.message,
@@ -80,3 +81,4 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+app.initialize();
