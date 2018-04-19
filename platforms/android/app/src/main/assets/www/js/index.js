@@ -35,14 +35,6 @@ var app = {
     onDeviceReady: function () {
         //app.receivedEvent('deviceready');
 
-        var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
-        db.transaction(createDB, errorCB, successCB);
-
-        getAppToken(function () {
-            getEvents();
-            getUser(userTrue);
-        });
-
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
         setScreenOrientation('portrait');
@@ -63,7 +55,7 @@ var app = {
             windows: {}
         });
         push.on('registration', function (data) {
-//                    alert(data.registrationId);
+                    alert(data.registrationId);
 //                    document.getElementById('d').value = data.registrationId;
             window.gPushToken = data.registrationId;
         });

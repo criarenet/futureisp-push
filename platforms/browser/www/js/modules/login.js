@@ -1,8 +1,13 @@
 var windowLogin = true;
 $(document).ready(function () {
-    //getAppToken(getEvents);
-    //getUser(userTrue);$('#faceLogin').on('click'
-    
+    var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+    db.transaction(createDB, errorCB, successCB);
+
+    getAppToken(function () {
+        getEvents();
+        getUser(userTrue);
+    });
+
 });
 
 function createDB(tx) {
