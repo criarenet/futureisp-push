@@ -1,0 +1,56 @@
+#mainBluePrintImage
+{
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px #fad67f solid; 
+}
+
+#bluePrintsList .iconList
+{
+    border-right: 1px solid rgba(255,255,255,.3);
+}
+
+#bluePrintsList .descriptionSection
+{
+        height: 32px;
+    padding-top: 5px;
+}
+
+.sectionList ul#bluePrintsList li h3
+{
+    margin-top: 15px;
+}
+
+#wrapperBluePrintDetail
+{
+    position: fixed;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99999;
+    background: #000;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*background: rgba(0, 129, 161,.95)*/
+}
+
+#wrapperBluePrintDetail.zoomIn
+{
+    animation-duration: 0.2s;
+}
+
+#btBluePrintDetail
+{
+    margin-top: 10px;
+}
+
+#btBluePrintDetail i
+{
+    color: #fff;
+    font-size: 30px;
+    margin: 0 0 0 0;
+}

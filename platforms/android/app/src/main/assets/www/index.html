@@ -39,21 +39,141 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+
+        <!--<link rel="stylesheet" type="text/css" href="css/materialize.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="css/carousel/owl.carousel.css" />
+        <link rel="stylesheet" type="text/css" href="css/carousel/style-carousel.css" />
+
+        <link rel="stylesheet" type="text/css" href="css/future-isp.css" />
+
+        <link rel="stylesheet" type="text/css" href="fonts/awesome/css/fontawesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="fonts/awesome/css/fontawesome-all.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="css/menu-slide/menu-slide.css" />
+        <link rel="stylesheet" type="text/css" href="css/wave-efects.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="css/cards.css" />        
+        
+        <link rel="stylesheet" type="text/css" href="css/session.css" />
+        <link rel="stylesheet" type="text/css" href="css/map-area.css" />
+        <link rel="stylesheet" type="text/css" href="css/blue-print.css" />
+        <link rel="stylesheet" type="text/css" href="css/hosts.css" />
+        <link rel="stylesheet" type="text/css" href="css/exhibitors.css" />
+        <link rel="stylesheet" type="text/css" href="css/time-line.css" />
+        
+        <title>FUTURE - ISP</title>
+        <style>
+            .owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item{
+                -ms-touch-action: auto;
+                touch-action: auto;
+            }
+        </style>
 </head>
 
 <body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-            
-            <input id="d"/>
+    <div id="splashScreen"></div>
+        <nav id="hamburgMenu" class="hamburgMenu" data-initcomponents="menu-list"></nav>  
+        <main id="panel" class="panel containment-wrapper">
+
+
+            <div id="wrapperHeader" class="menuOff">
+                
+                <nav id="headerCompany">
+                    <div class="nav-wrapper">
+                        <div style="padding: 15px 0 0 10px; text-align: left;" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a class="menu-hamburg js-slideout-toggle waves-effect waves-grey">
+                                <i class="fal fa-bars"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <h3>FUTURE - ISP</h3>
+                        </div>
+                        
+                        <div style="padding: 13px 10px 0 0; text-align: right;" class="mainLogo col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a id="subscribeIcon" data-navigate="subscribe" data-notMenu="pagAction" class="headermenu" href="#">
+                                <i style="font-size:30px;width:30px;
+                                   height:30px;border-radius:50%;
+                                   background-size:cover;" class="fal fa-user-circle"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </nav>
+            </div>
+
+
+            <div class="content">
+                <div class="evtsSections" id="home" data-initcomponents="home"></div>
+                <div class="evtsSections" id="eventSchedule" data-initcomponents="event-schedule"></div>
+            </div>
+
+        </main>
+        <div data-initcomponents="subscribe-form" id="subscribe"></div>
+        
+        <div data-initcomponents="session-details" id="sessionDetails"></div>
+        
+        <div data-initcomponents="maps-area" id="mapsArea"></div>
+        
+        <div data-initcomponents="blue-print" id="bluePrint"></div>
+        <div data-initcomponents="blue-print-detail" id="bluePrintDetail"></div>
+        
+        <div data-initcomponents="hosts" id="hosts"></div>
+        <div data-initcomponents="hosts-details" id="hostsDetails"></div>
+        
+        <div data-initcomponents="exhibitor" id="exhibitor"></div>
+        <div data-initcomponents="exhibitor-details" id="exhibitorDetails"></div>
+        
+        <div data-initcomponents="calendar" id="calendar"></div>
+        
+        <div class="maskLoader">
+            <div id="wrapperLoader">
+                <div class="loader"></div>
+            </div>
         </div>
-    </div>
+        <div id="realTimeButton" class="waves-effect waves-grey"><i class="fal fa-stopwatch"></i></div>
+        
+        <div class="wrapperCard" style="width: calc(100% - 30px);">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link waves-effect waves-grey">Gravar mensagem</a>
+                    <a href="#" class="card-link cardClose waves-effect waves-grey">Fechar</a>
+                </div>
+            </div>
+        </div>
+    
+        <script>var slideMenuSize = 0;</script>
+        <script src="js/common/jquery/jquery-3.3.1.min.js"></script>
+        <script src="js/common/app-lib.js"></script>
+        <script src="js/constants/urls.js"></script>
+
+        <script src="js/common/owl.carousel.js"></script>
+        <script src="js/common/moment.js"></script>
+
+        <script src="js/common/inject-includes.js"></script>
+        <script src="js/common/menu-slide/mocha.js"></script>
+        <script src="js/common/menu-slide/slideout.js"></script>
+        <script src="js/common/menu-slide/init-slide-menu.js"></script>
+        <script src="js/common/jquery.animateNumber.min.js"></script>
+        <script src="js/common/wave-efects.js"></script>
+        <script src="js/common/notifications.js"></script>
+        
+        <script src="js/common/components.js"></script>
+        
+        <script src="js/modules/events.js"></script>
+        <script src="js/modules/sessions.js"></script>
+        <script src="js/modules/login.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoE6V8RN4GI0r6hgg6AXzbkRQSPMbQoIA"></script>
+    
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    
+    <script src="js/modules/manager-push.js"></script>
 </body>
 
 </html>

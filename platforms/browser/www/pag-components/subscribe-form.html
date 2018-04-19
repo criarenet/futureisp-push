@@ -1,0 +1,97 @@
+<div id="wrapperSubscribeForm" class="row">
+    <nav id="headerSubscribeForm" style="background: #0081a1; border-bottom: 1px solid #fad67f; height: 45px;">
+        <div class="nav-wrapper">
+            <div id="btSubscribeForm" style="margin-top: 10px;" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <i class="fal fa-long-arrow-left"></i>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <h3 style="margin: 15px 0 0 0; text-align: right; color: #fad67f; font-size: 21px;">Meu perfil</h3>
+            </div>
+        </div>
+    </nav>
+    <!--<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />-->
+    <div>
+    <div id="formAvatar" onclick="capturePhotoEdit();">
+        <i class="fal fa-user-circle"></i>
+        <i class="fal fa-plus btAddAvatar"></i>
+    </div>
+    </div>
+    <div class="formApp col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form id="userForm">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 commonRegister">
+            <div class="form-group">
+                <div class="form-line">
+                    <input name="name" type="text" class="form-control" placeholder="Nome">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="password" name="password" class="form-control" placeholder="Senha">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 commonRegister">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar senha">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 commonRegister">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" class="form-control" name="company" placeholder="Empresa">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 commonRegister">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="tel" class="form-control" name="phone" placeholder="Celular (99) 99999-9999">
+                </div>
+            </div>
+        </div>
+            <div style="margin-bottom: 20px; text-align: center;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button type="button" class="btRegister">Entrar</button>
+            </div>
+        <div style="padding: 0 35px 10px 30px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button id="faceLogin" class="loginBtn loginBtn--facebook" type="button">
+                <i class="fab fa-facebook-f"></i> Entrar com Facebook
+            </button>
+        </div>
+            <div style="padding: 0 35px 10px 30px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button id="googleLogin" class="loginBtn loginBtn--google" type="button">
+                    <i class="fab fa-google-plus-g"></i> Entrar com Google
+                </button>
+            </div>
+<!--        <div id="loginSocialList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            
+            <h3>Você também pode usar as redes sociais</h3>
+            
+            <div id="faceLogin" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <i style="color: #365899;" class="fab fa-facebook-square"></i>
+            </div>
+            
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <i style="color: #d34836;" class="fab fa-google-plus-square"></i>
+            </div>
+        </div>-->
+        <div style="text-align: center; margin-top: 15px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a id="openForm" href="#">Ainda não tenho um registro</a>
+        </div>
+        
+        
+</form>
+    </div>
+    
+</div>
+<script src="js/modules/subscribe-form.js"></script>

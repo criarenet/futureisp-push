@@ -1,0 +1,91 @@
+#mainExhibitorImage, #mainExhibitorsImage
+{
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px #fad67f solid; 
+}
+
+#exhibitorName h3
+{
+    font-size: 22px;
+    color: #fff;
+    margin: 15px 0 5px 5px;
+}
+
+#exhibitorTitle h5, #exhibitorEmail h5
+{
+    font-size: 16px;
+    color: #fad67f;
+    margin: 0;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+#exhibitionsExhibitor
+{
+    border-bottom: 1px solid #fad67f;
+}
+
+#mainExhibitorAvatarImage
+{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#mainExhibitorAvatarImage i
+{
+    font-size: 75px;
+    color: #ccc;
+    font-weight: 600;
+    color: #fff;
+}
+
+#exhibitionsExhibitor h4, #descriptionExhibitor h4
+{
+    margin-bottom: -5px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#descriptionExhibitor p
+{
+    color: #fff;
+}
+
+#exhibitionsExhibitor ul
+{
+    padding-left: 0;
+}
+
+#exhibitionsExhibitor ul li
+{
+    list-style: none;
+    color: #fff;
+    padding: 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+#exhibitorsList .iconList
+{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#exhibitorsList .descriptionSection
+{
+    margin-bottom: 12px;
+}
+
+#avatarExhibitor
+{
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin: auto;
+    background-size: cover;
+}

@@ -1,0 +1,92 @@
+#mainHostsImage
+{
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px #fad67f solid; 
+}
+
+#hostName h3
+{
+    font-size: 22px;
+    color: #fff;
+    margin: 15px 0 5px 5px;
+}
+
+#hostTitle h5, #hostEmail h5
+{
+    font-size: 16px;
+    color: #fad67f;
+    margin: 0;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+#exhibitionsHost
+{
+    border-bottom: 1px solid #fad67f;
+    padding-bottom: 10px;
+}
+
+#mainHostAvatarImage
+{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#mainHostAvatarImage i
+{
+    font-size: 75px;
+    color: #ccc;
+    font-weight: 600;
+    color: #fff;
+}
+
+#exhibitionsHost h4, #descriptionHost h4
+{
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#descriptionHost p
+{
+    color: #fff;
+}
+
+#exhibitionsHost ul
+{
+    padding-left: 0;
+}
+
+#exhibitionsHost ul li
+{
+    list-style: none;
+    color: #fff;
+    padding: 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+#hostsList .iconList
+{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#hostsList .descriptionSection
+{
+    margin-bottom: 0;
+}
+
+#avatarHost
+{
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin: auto;
+    background-size: cover;
+}

@@ -33,43 +33,55 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        app.receivedEvent('deviceready');
-        var a = 0
-        var searchPush = setInterval(function () {
-            document.getElementById('d').value = (a = a+1);
-            if (PushNotification) {
-                var push = PushNotification.init({
-                    android: {
-                        "senderID": "558917165307"
-                    },
-                    browser: {
-                        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-                    },
-                    ios: {
-                        alert: "true",
-                        badge: "true",
-                        sound: "true"
-                    },
-                    windows: {}
-                });
-                push.on('registration', function (data) {
-                    alert(data.registrationId);
-                    document.getElementById('d').value = data.registrationId;
-                });
-                push.on('notification', function (data) {
-                    // data.message,
-                    // data.title,
-                    // data.count,
-                    // data.sound,
-                    // data.image,
-                    // data.additionalData
-                });
-                push.on('error', function (e) {
-                    // e.message
-                });
-                clearInterval(searchPush);
-            }
-        }, 1000);
+        //app.receivedEvent('deviceready');
+
+        var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+        db.transaction(createDB, errorCB, successCB);
+
+        getAppToken(function () {
+            getEvents();
+            getUser(userTrue);
+        });
+
+        pictureSource = navigator.camera.PictureSourceType;
+        destinationType = navigator.camera.DestinationType;
+        setScreenOrientation('portrait');
+        StatusBar.hide();
+
+        var push = PushNotification.init({
+            android: {
+                "senderID": "558917165307"
+            },
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            },
+            windows: {}
+        });
+        push.on('registration', function (data) {
+//                    alert(data.registrationId);
+//                    document.getElementById('d').value = data.registrationId;
+            window.gPushToken = data.registrationId;
+        });
+        push.on('notification', function (data) {
+            
+            var obj = {};
+            obj.message = data.message;
+            obj.title = data.title;
+            obj.count = data.count;
+            obj.sound = data.sound;
+            obj.img = data.image;
+            obj.additionalData = data.additionalData;
+            buildPushMessage(obj);
+
+        });
+        push.on('error', function (e) {
+            // e.message
+        });
     },
     receivedEvent: function (id) {
         var parentElement = document.getElementById(id);

@@ -1,0 +1,96 @@
+#sessionName h3
+{
+    font-size: 22px;
+    color: #fff;
+    margin: 15px 0 15px 5px;
+}
+
+#sessionSubTitle h5
+{
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+#sessionSubTitle
+{
+    border-bottom: 1px solid #fad67f;
+}
+
+#exhibitions, #personality
+{
+    color: #fff;
+    height: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    padding: 0 0 15px 5px;
+    border-bottom: 1px solid #fad67f;
+}
+
+#exhibitions h4, #personality h4
+{
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+#exhibitions ul, #personality ul
+{
+    padding: 0;
+    margin: 0;
+    height: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+}
+
+#exhibitions ul li, #personality ul li
+{
+    list-style: none;
+    color: #fff;
+    padding: 0;
+    font-size: 18px;
+}
+
+#mainSessionImage
+{
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px #fad67f solid; 
+}
+
+#descriptionSession h4
+{
+    margin-bottom: -5px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#descriptionSession p
+{
+    
+    color: #fff;
+}
+
+#sessionContent
+{
+    overflow: auto;
+}
+
+b.startBall
+{
+    color: #00E676;
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+b.endBall
+{
+    color: #ff3d00;
+    font-size: 32px;
+    padding-top: 3px;
+    vertical-align: middle;
+}
