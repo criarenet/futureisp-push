@@ -21,6 +21,9 @@ $(document).ready(function () {
         $('#openForm').on('click', function () {
             toogleDiscoveryForm();
         });
+        $('#closeForm').on('click', function () {
+            toogleDiscoveryForm('close');
+        });
         formHidShadown();
     }, 500);
 
@@ -45,17 +48,19 @@ var formHidShadown = function () {
         });
     };
 
-var toogleDiscoveryForm = function(){
+var toogleDiscoveryForm = function(close){
     var fields = $('.commonRegister');
     var visible = $('.commonRegister:visible').length;
     $(fields).show();
-//    if(visible){
-//        $(fields).hide();
-//    }else{
-//        $(fields).show();
-//    }
+    if(close == 'close'){
+        clearForm($('#userForm'));
+        windowLogin = true;
+        $(fields).hide();
+    }else{
+        $(fields).show();
+        windowLogin = false;
+    }
     $('.formApp').scrollTop(0);
-    windowLogin = false;
 };
 
 var facebookLogin = function () {

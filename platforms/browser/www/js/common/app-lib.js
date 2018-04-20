@@ -177,3 +177,46 @@ function parseToForm(frm, data, callback) {
         callback();
     }
 }
+
+function clearForm(frm, table) {
+    
+    /*$(frm).children('.valid').each(function(i,v){
+        $(v).addClass('is-invalid');
+    });*/
+    
+    $(frm).children('.valid').each(function(i,v){
+        $(v).removeClass('is-invalid');
+        $(v).children().removeAttr('requerid');
+        $(v).children().off('blur');
+        $(v).children().on('blur', function(){
+            if(!$(this).val()){
+                $(this).attr('requerid');
+                $(this).parent().addClass('is-invalid');
+            }
+        });
+    });
+    
+    var ipts = frm[0].getElementsByTagName('input');
+    var textarea = frm[0].getElementsByTagName('textarea');
+    var selects = frm[0].getElementsByTagName('select');
+    $.each(ipts, function (ind) {
+        if (ipts[ind].type != 'radio' && ipts[ind].type != 'checkbox') {
+            ipts[ind].value = "";
+        }
+    });
+    $.each(textarea, function (ind) {
+        textarea[ind].value = "";
+    });
+    $.each(selects, function (ind) {
+        selects[ind].value = "";
+    });
+    
+    //Boostrap Clear - refresh
+//    $('[type="checkbox"]:checked').click();
+//    $('[type="radio"]:checked').attr('checked', false);
+//    $('select').selectpicker('refresh');
+    
+//    if (table) {
+//        table.clear().draw();
+//    }
+}
