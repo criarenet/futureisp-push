@@ -6,7 +6,7 @@ var request = function (obj, callback) {
     if(!obj.noLoader){
         $('.maskLoader').fadeIn(50);
     }
-    alert(obj.url);
+    //alert(obj.url);
     setTimeout(function () {
         $.ajax({
             headers:{
@@ -55,8 +55,7 @@ var request = function (obj, callback) {
                     }else{
                         /*msg*/
                         alert(obj.url);
-                        var mensage = e.responseJSON.message
-                        alertInfo('Ops4!','Algo deu errado COD: <b>' + e.statusText + ' - ' + mensage+'</b>','danger');
+                        alertInfo('Ops4!','Algo deu errado COD: <b>' + e.statusText +'</b>','danger');
                         
                     }
                 }
