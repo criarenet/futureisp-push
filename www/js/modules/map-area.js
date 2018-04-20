@@ -36,7 +36,7 @@ function geocodeAddress(geocoder, resultsMap, eventAddress) {
             });
             
         } else {
-            alertInfo('Ops!','Algo deu errado COD: <b>' + status + '</b>','danger');
+            alertInfo('Ops5!','Algo deu errado COD: <b>' + status + '</b>','danger');
             //alert('Geocode was not successful for the following reason: ' + status);
         }
      });
