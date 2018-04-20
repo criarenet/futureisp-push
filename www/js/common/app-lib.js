@@ -6,7 +6,7 @@ var request = function (obj, callback) {
     if(!obj.noLoader){
         $('.maskLoader').fadeIn(50);
     }
-
+    alert(obj.url);
     setTimeout(function () {
         $.ajax({
             headers:{

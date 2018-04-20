@@ -1,12 +1,6 @@
 var windowLogin = true;
 $(document).ready(function () {
-    var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
-    db.transaction(createDB, errorCB, successCB);
-
-    getAppToken(function () {
-        getEvents();
-        getUser(userTrue);
-    });
+    
 
 });
 
@@ -18,7 +12,7 @@ function createDB(tx) {
 
 function errorCB(tx) {
     console.log(tx)
-    alertInfo('Ops!',tx,'danger');
+    alertInfo('Ops!','DB - '+tx,'danger');
 }
 
 function successCB(tx) {
@@ -139,6 +133,7 @@ var getAppToken = function (callback) {
         query: query
     };
     request(obj, function (json) {
+        alert('token')
         if (json) {
             window.gAuthorization = json.token_type + ' ' + json.access_token;
             if(callback){

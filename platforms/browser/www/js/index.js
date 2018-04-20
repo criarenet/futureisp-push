@@ -35,10 +35,10 @@ var app = {
     onDeviceReady: function () {
         //app.receivedEvent('deviceready');
 
-        pictureSource = navigator.camera.PictureSourceType;
-        destinationType = navigator.camera.DestinationType;
-        setScreenOrientation('portrait');
-        StatusBar.hide();
+//        pictureSource = navigator.camera.PictureSourceType;
+//        destinationType = navigator.camera.DestinationType;
+//        setScreenOrientation('portrait');
+//        StatusBar.hide();
 
         var push = PushNotification.init({
             android: {
@@ -55,6 +55,15 @@ var app = {
             windows: {}
         });
         push.on('registration', function (data) {
+            
+            var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+            db.transaction(createDB, errorCB, successCB);
+
+            getAppToken(function () {
+                getEvents();
+                getUser(userTrue);
+            });
+            
                     alert(data.registrationId);
 //                    document.getElementById('d').value = data.registrationId;
             window.gPushToken = data.registrationId;
