@@ -54,7 +54,9 @@ var request = function (obj, callback) {
                         
                     }else{
                         /*msg*/
-                        alertInfo('Ops4!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
+                        alert(obj.url);
+                        var mensage = e.responseJSON.message
+                        alertInfo('Ops4!','Algo deu errado COD: <b>' + e.statusText + ' - ' + mensage+'</b>','danger');
                         
                     }
                 }
