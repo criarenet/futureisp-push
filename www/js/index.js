@@ -35,10 +35,10 @@ var app = {
     onDeviceReady: function () {
         //app.receivedEvent('deviceready');
 
-        pictureSource = navigator.camera.PictureSourceType;
-        destinationType = navigator.camera.DestinationType;
-        setScreenOrientation('portrait');
-        StatusBar.hide();
+//        pictureSource = navigator.camera.PictureSourceType;
+//        destinationType = navigator.camera.DestinationType;
+//        setScreenOrientation('portrait');
+//        StatusBar.hide();
 
         var push = PushNotification.init({
             android: {

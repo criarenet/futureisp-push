@@ -18,7 +18,7 @@ function createDB(tx) {
 
 function errorCB(tx) {
     console.log(tx)
-    alertInfo('Ops!',tx,'danger');
+    alertInfo('Ops!','DB - '+tx,'danger');
 }
 
 function successCB(tx) {
