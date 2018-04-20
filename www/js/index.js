@@ -72,15 +72,40 @@ var app = {
             gPushToken = data.registrationId;
         });
         push.on('notification', function (data) {
+            navigator.notification.alert(
+                    data.message, // message
+                    function () {
+                        buildPushMessage(data)
+                    }, // callback
+                    data.title, // title
+                    'Ok'                  // buttonName
+                    );
             
-            var obj = {};
-            obj.message = data.message;
-            obj.title = data.title;
-            obj.count = data.count;
-            obj.sound = data.sound;
-            obj.img = data.image;
-            obj.additionalData = data.additionalData;
-            buildPushMessage(obj);
+            window.myPushExec = {
+                showMsg: function () {
+                    data.message = 'minha';
+                    buildPushMessage(data)
+                }
+
+            }
+            if (data.message) {
+                myPushExec.showMsg();
+            }
+            
+//            var obj = {};
+//            obj.message = data.message;
+//            obj.title = data.title;
+//            obj.count = data.count;
+//            obj.sound = data.sound;
+//            obj.img = data.image;
+//            obj.additionalData = data.additionalData;
+            
+            
+            //alertInfo(obj.title,obj.message,'success');
+           
+            
+
+
 
         });
         push.on('error', function (e) {
