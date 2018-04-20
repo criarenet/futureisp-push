@@ -21,7 +21,9 @@
       "phonegap-plugin-push": {
         "SENDER_ID": ""
       },
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-statusbar": {}
     }
   },
   "dependencies": {
