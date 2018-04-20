@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var gPushToken = '';
 var app = {
     // Application Constructor
     initialize: function () {
@@ -66,9 +67,9 @@ var app = {
                 getUser(userTrue);
             });
             
-                    alert(data.registrationId);
+                    //alert(data.registrationId);
 //                    document.getElementById('d').value = data.registrationId;
-            window.gPushToken = data.registrationId;
+            gPushToken = data.registrationId;
         });
         push.on('notification', function (data) {
             

@@ -33,4 +33,6 @@ futureIspApp.url.LOGGED_USER = pathApp + 'logged';
 
 futureIspApp.url.GET_MY_CALLENDAR = pathApp + 'user/calendar';
 
-futureIspApp.url.RECORD_PUSH_TOKEN = pathApp + 'user/token';
+futureIspApp.url.RECORD_PUSH_TOKEN = pathApp + 'token';
+
+futureIspApp.url.ASSOCIATE_PUSH_TOKEN = pathApp + 'token/user';

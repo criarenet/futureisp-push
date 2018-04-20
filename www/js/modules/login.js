@@ -49,11 +49,30 @@ var userTrue = function (tx, data) {
     if (data.rows.length) {
         window.gTokenSessions = data.rows.item(0).userToken;
         getLoggedUser();
+        if(gPushToken){
+            associatePush();
+        }
     } else {
         window.gTokenSessions = false;
     }
 };
 
+var associatePush = function(){
+    var query = 'token='+gPushToken;
+    //alert(query)
+    var obj = {
+        url: futureIspApp.url.ASSOCIATE_PUSH_TOKEN,
+        type: "POST",
+        noLoader: true,
+        auth: gTokenSessions,
+        contentType: 'application/x-www-form-urlencoded',
+        query: query
+    };
+   
+    request(obj, function (json) {
+        //alertInfo('Sucesso', json, 'success');
+    });
+};
 
 var getUserToken = function (callback, data) {
     var query =  {
@@ -133,7 +152,7 @@ var getAppToken = function (callback) {
         query: query
     };
     request(obj, function (json) {
-        alert('token')
+        //alert('token')
         if (json) {
             window.gAuthorization = json.token_type + ' ' + json.access_token;
             if(callback){

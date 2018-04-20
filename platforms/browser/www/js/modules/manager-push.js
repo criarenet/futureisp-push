@@ -5,6 +5,7 @@ $(document).ready(function () {
 
 var recSimpleTokenPush = function () {
     var query = 'token='+gPushToken;
+    //alert(query)
     var obj = {
         url: futureIspApp.url.RECORD_PUSH_TOKEN,
         type: "POST",
@@ -12,17 +13,14 @@ var recSimpleTokenPush = function () {
         auth: gAuthorization,
         contentType: 'application/x-www-form-urlencoded',
         query: query
+        
     };
     request(obj, function (json) {
-        
+        //alertInfo('Sucesso', json, 'success');
     });
 };
 
 var recRegisterUserTokenPush = function(){
-    
-};
-
-var recSimpleTokenPush = function(){
     
 };
 
