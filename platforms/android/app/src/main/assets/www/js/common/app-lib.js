@@ -38,24 +38,23 @@ var request = function (obj, callback) {
                                       (e.responseJSON.errors.password?e.responseJSON.errors.password[0]:'');
                     var mensage = e.responseJSON.message + '<br>' + errorsList
                     
-                    alertInfo('Ops1! Algo deu errado',mensage,'danger');
+                    alertInfo('Ops! Algo deu errado',mensage,'danger');
                     
                 }
                 else if (e.status === 0) {
                     /*msg*/
-                    alertInfo('Ops2!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
+                    alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
                   }
                 
                 else {
  
                     if (obj && obj.errorType === 'login') {
                         /*msg*/
-                        alertInfo('Ops3!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
+                        alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
                         
                     }else{
                         /*msg*/
-                        alert(obj.url);
-                        alertInfo('Ops4!','Algo deu errado COD: <b>' + e.statusText +'</b>','danger');
+                        alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText +'</b>','danger');
                         
                     }
                 }

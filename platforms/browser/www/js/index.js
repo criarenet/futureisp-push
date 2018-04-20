@@ -37,8 +37,8 @@ var app = {
 
 //        pictureSource = navigator.camera.PictureSourceType;
 //        destinationType = navigator.camera.DestinationType;
-//        setScreenOrientation('portrait');
-//        StatusBar.hide();
+        setScreenOrientation('portrait');
+        StatusBar.hide();
 
         var push = PushNotification.init({
             android: {
@@ -55,6 +55,8 @@ var app = {
             windows: {}
         });
         push.on('registration', function (data) {
+            pictureSource = navigator.camera.PictureSourceType;
+            destinationType = navigator.camera.DestinationType;
             
             var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
             db.transaction(createDB, errorCB, successCB);

@@ -20,7 +20,8 @@
       "cordova-plugin-vibration": {},
       "phonegap-plugin-push": {
         "SENDER_ID": ""
-      }
+      },
+      "cordova-plugin-whitelist": {}
     }
   },
   "dependencies": {

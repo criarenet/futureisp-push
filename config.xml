@@ -110,6 +110,8 @@
     <platform name="ios">
         <resource-file src="GoogleService-Info.plist" />
     </platform>
+    <plugin name="cordova-plugin-screen-orientation" />
+    <plugin name="cordova-plugin-statusbar"/>
     <plugin name="cordova-plugin-whitelist" source="npm" />
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
