@@ -39,6 +39,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "br.com.futureisp"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "br.com.futureisp"
     }
   },
   "dependent_plugins": {
