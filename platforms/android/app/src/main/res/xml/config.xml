@@ -35,9 +35,6 @@
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
-    <feature name="Permissions">
-        <param name="android-package" value="com.android.plugins.Permissions" />
-    </feature>
     <name>FutureIsp</name>
     <description>
         Application with details about futureisp events.
