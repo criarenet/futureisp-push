@@ -40,58 +40,58 @@ var app = {
 //        destinationType = navigator.camera.DestinationType;
         setScreenOrientation('portrait');
         StatusBar.hide();
-        if (typeof PushNotification !== 'undefined') {
-            var push = PushNotification.init({
-                android: {
-                    "senderID": "1014828209310"
-                },
-                browser: {
-                    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-                },
-                ios: {
-                    alert: "true",
-                    badge: "true",
-                    sound: "true"
-                },
-                windows: {}
+
+        var push = PushNotification.init({
+            android: {
+                "senderID": "1014828209310"
+            },
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            },
+            windows: {}
+        });
+        push.on('registration', function (data) {
+            //pictureSource = navigator.camera.PictureSourceType;
+            //destinationType = navigator.camera.DestinationType;
+            
+            var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+            db.transaction(createDB, errorCB, successCB);
+
+            getAppToken(function () {
+                getEvents();
+                getUser(userTrue);
             });
-            push.on('registration', function (data) {
-                //pictureSource = navigator.camera.PictureSourceType;
-                //destinationType = navigator.camera.DestinationType;
-
-                var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
-                db.transaction(createDB, errorCB, successCB);
-
-                getAppToken(function () {
-                    getEvents();
-                    getUser(userTrue);
-                });
-
-                //alert(data.registrationId);
+            
+                    //alert(data.registrationId);
 //                    document.getElementById('d').value = data.registrationId;
-                gPushToken = data.registrationId;
-            });
-            push.on('notification', function (data) {
-                navigator.notification.alert(
-                        data.message, // message
-                        function () {
-                            buildPushMessage(data)
-                        }, // callback
-                        data.title, // title
-                        'Ok'                  // buttonName
-                        );
-
-                window.myPushExec = {
-                    showMsg: function () {
-                        data.message = 'minha';
+            gPushToken = data.registrationId;
+        });
+        push.on('notification', function (data) {
+            navigator.notification.alert(
+                    data.message, // message
+                    function () {
                         buildPushMessage(data)
-                    }
-
+                    }, // callback
+                    data.title, // title
+                    'Ok'                  // buttonName
+                    );
+            
+            window.myPushExec = {
+                showMsg: function () {
+                    data.message = 'minha';
+                    buildPushMessage(data)
                 }
-                if (data.message) {
-                    myPushExec.showMsg();
-                }
 
+            }
+            if (data.message) {
+                myPushExec.showMsg();
+            }
+            
 //            var obj = {};
 //            obj.message = data.message;
 //            obj.title = data.title;
@@ -99,19 +99,18 @@ var app = {
 //            obj.sound = data.sound;
 //            obj.img = data.image;
 //            obj.additionalData = data.additionalData;
+            
+            
+            //alertInfo(obj.title,obj.message,'success');
+           
+            
 
 
-                //alertInfo(obj.title,obj.message,'success');
 
-
-
-
-
-            });
-            push.on('error', function (e) {
-                // e.message
-            });
-        }
+        });
+        push.on('error', function (e) {
+            // e.message
+        });
     },
     receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
