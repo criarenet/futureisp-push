@@ -235,7 +235,7 @@ var navigateApp = function (el, list) {
             } else {
                 time = 0;
             }
-            
+            sethostHeight()
             setTimeout(function () {
                 getHosts(function(){
                     showHideHosts();
@@ -250,7 +250,7 @@ var navigateApp = function (el, list) {
             } else {
                 time = 0;
             }
-            
+            setExhibitorHeight();
             setTimeout(function () {
                 getExhibitors(function(){
                     showHideExhibitors();

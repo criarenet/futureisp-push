@@ -19,7 +19,6 @@ var request = function (obj, callback) {
             url: obj.url,
             data: obj.query ? obj.query : '',
             complete: function (e, xhr, settings) {
-                
                 setTimeout(function(){$('.maskLoader').fadeOut(50)},300);
                 
                 if (e.status >= 200 && e.status < 400) {
@@ -28,9 +27,18 @@ var request = function (obj, callback) {
                     }
                 } else if (e.status === 401) {
                     /*msg*/
-                    
-                    alertInfo('Ops!','É necessário fazer login novamente','danger');
-                    
+                    //alert(obj.url)
+                    if(
+                    obj.url == futureIspApp.url.GET_MY_CALLENDAR || obj.url == futureIspApp.url.SET_SELECTED_CALENDAR ||
+                    obj.url == futureIspApp.url.LOGGED_USER || obj.url == futureIspApp.url.ASSOCIATE_PUSH_TOKEN
+                      ){
+                        //alert(obj.url);
+                        alertInfo('Ops!','É necessário fazer login novamente','warning');
+                    }else{
+                        //alert(obj.auth)
+                        getAppToken('');
+                        alertInfo('Ops!','Verifique se você esta conectado na internet e tente novamente.','warning');
+                    }
                 }else if (e.status === 422) {
                     /*msg*/
                     var errorsList = (e.responseJSON.errors.email?e.responseJSON.errors.email[0]:'') +' '+

@@ -23,16 +23,16 @@ futureIspApp.url.GET_HOSTS_BY_ID_EVENT = pathApp + 'event/idEvent/hosts';
 
 futureIspApp.url.GET_CALENDAR = pathApp + 'event/idEvent/calendar';
 
-futureIspApp.url.SET_SELECTED_CALENDAR = pathApp + 'session/idSession/attend';
+futureIspApp.url.SET_SELECTED_CALENDAR = pathApp + 'session/idSession/attend';/**/
 
 futureIspApp.url.GET_COMPANIES_BY_ID_EVENT = pathApp + 'event/idEvent/companies';
 
 futureIspApp.url.REGISTER_USER = pathApp + 'user';
 
-futureIspApp.url.LOGGED_USER = pathApp + 'logged';
+futureIspApp.url.LOGGED_USER = pathApp + 'logged';/**/
 
-futureIspApp.url.GET_MY_CALLENDAR = pathApp + 'user/calendar';
+futureIspApp.url.GET_MY_CALLENDAR = pathApp + 'user/calendar';/**/
 
 futureIspApp.url.RECORD_PUSH_TOKEN = pathApp + 'token';
 
-futureIspApp.url.ASSOCIATE_PUSH_TOKEN = pathApp + 'token/user';
+futureIspApp.url.ASSOCIATE_PUSH_TOKEN = pathApp + 'token/user';/**/

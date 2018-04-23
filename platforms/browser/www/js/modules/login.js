@@ -1,12 +1,26 @@
 var windowLogin = true;
+
 $(document).ready(function () {
     
-
 });
 
-function createDB(tx) {
-    //tx.executeSql('DROP TABLE IF EXISTS APPDATABASE');
+var logoutFunction = function(){
     
+    var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+    
+    db.transaction(function (tx) {
+        tx.executeSql('DROP TABLE IF EXISTS APPDATABASE');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS APPDATABASE (userToken)');
+    }, errorCB, successCB);
+    
+    window.gTokenSessions = false;
+    toogleDiscoveryForm('close');
+    
+};
+
+function createDB(tx) {
+    
+    //tx.executeSql('DROP TABLE IF EXISTS APPDATABASE');
     tx.executeSql('CREATE TABLE IF NOT EXISTS APPDATABASE (userToken)');
 }
 
@@ -33,6 +47,10 @@ var updateUser = function (userToken) {
 var addUser = function (userToken) {
     var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
     db.transaction(function (tx) {
+        
+        tx.executeSql('DROP TABLE IF EXISTS APPDATABASE');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS APPDATABASE (userToken)');
+
         tx.executeSql('INSERT INTO APPDATABASE (userToken) VALUES ("' + userToken + '")');
     }, errorCB, successCB);
 };
@@ -49,9 +67,7 @@ var userTrue = function (tx, data) {
     if (data.rows.length) {
         window.gTokenSessions = data.rows.item(0).userToken;
         getLoggedUser();
-        if(gPushToken){
-            associatePush();
-        }
+        
     } else {
         window.gTokenSessions = false;
     }
@@ -131,6 +147,9 @@ var getLoggedUser = function (callback) {
         windowLogin = false;
         
         toogleDiscoveryForm();
+        if (gPushToken) {
+            associatePush();
+        }
         if (callback) {
             callback();
         }

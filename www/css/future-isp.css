@@ -848,11 +848,25 @@ button.btRegister {
   background: #E74B37;
 }
 
-a#openForm, a#closeForm
+a#openForm, a#closeForm, #btLogout
 {
     font-size: 16px;
     text-decoration: underline;
     color: #fff;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+#btLogout
+{
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #fff;
+}
+
+#btLogout i
+{
+    font-size: 18px;
+    margin-right: 5px;
 }

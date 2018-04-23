@@ -142,7 +142,7 @@ setExhibitorHeight = function (callback) {
 
     var allHeight = $(window).height();
     
-    var hEvt = allHeight - 90 - 101;
+    var hEvt = allHeight - 90 - 110;
     $('#exhibitorContent').height(hEvt);
     if (callback) {
         callback();

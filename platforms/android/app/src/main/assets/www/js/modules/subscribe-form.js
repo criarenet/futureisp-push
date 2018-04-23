@@ -9,7 +9,7 @@ $(document).ready(function () {
         $('.formApp').removeClass('focused');
         $('#formAvatar').parent().css('box-shadow', 'none')
     });
-
+    $('#btLogout').on('click', logoutFunction);
     setTimeout(function () {
         $('#faceLogin').on('click', function () {
             facebookLogin();
@@ -55,6 +55,16 @@ var toogleDiscoveryForm = function(close){
     if(close == 'close'){
         clearForm($('#userForm'));
         windowLogin = true;
+        
+        $('#subscribeIcon i').css({
+            'background-image': 'none',
+            'color': '#fad67f',
+            'border': 'none'
+        });
+        
+        $('#formAvatar').removeClass('whImg');
+        $('#formAvatar').css('background-image', 'none');
+        $('#formAvatar .fa-user-circle').show();
         $(fields).hide();
     }else{
         $(fields).show();
