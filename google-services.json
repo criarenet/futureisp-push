@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1014828209310",
+    "firebase_url": "https://futureispush.firebaseio.com",
+    "project_id": "futureispush",
+    "storage_bucket": "futureispush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014828209310:android:3c128ec3c5284578",
+        "android_client_info": {
+          "package_name": "br.com.futureisp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014828209310-tk8nb4kslrusk7vm0hme8jbctave2gdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa8OBie0hqgfGqSTpygFoShBFjKQUNBM0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
