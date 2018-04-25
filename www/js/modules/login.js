@@ -94,7 +94,7 @@ var getUserToken = function (callback, data) {
     var query =  {
         'grant_type': 'password',
         'client_id': 2,
-        'client_secret': 'nURqyXipcys8CpV3bZ0AfcoxQhiX1bGhMDbCd6tx',
+        'client_secret': 'YS7OtOoHH4waTfaXSBn6T4wh8DwthQKEiPi5ozHw',
         'username':data.email,
         'password':data.password,
         'scope': '*'
@@ -160,7 +160,7 @@ var getAppToken = function (callback) {
     var query =  {
         'grant_type': 'client_credentials',
         'client_id': 1,
-        'client_secret': '69QZjnrTDr2QdyzkFjbQigRb9Zkebr5YpvBbB04U',
+        'client_secret': 'LGVW9uX6cWafx3qpbm8Ci0NaV96xstVGFl1x2qO0',
         'scope': '*'
     };
     var obj = {

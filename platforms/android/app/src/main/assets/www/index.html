@@ -73,7 +73,7 @@
 </head>
 
 <body>
-    <div id="splashScreen"></div>
+    <div id="splashScreen" style="display: none;"></div>
         <nav id="hamburgMenu" class="hamburgMenu" data-initcomponents="menu-list"></nav>  
         <main id="panel" class="panel containment-wrapper">
 
@@ -135,13 +135,27 @@
         <div id="realTimeButton" class="waves-effect waves-grey"><i class="fal fa-stopwatch"></i></div>
         
         <div class="wrapperCard" style="width: calc(100% - 30px);">
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 100%; height: 100%; overflow: auto;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <div id="headerCardMsg" class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                    <h5 class="card-title"><i class="fas fa-bell"></i> Minhas mensagens</h5>
+                    </div>
+                    <span class=" col-xs-1 col-sm-1 col-md-1 col-lg-1 cardClose"><i class="fal fa-times"></i></span>
                     <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link waves-effect waves-grey">Gravar mensagem</a>
-                    <a href="#" class="card-link cardClose waves-effect waves-grey">Fechar</a>
+                    <ul id="recivedPushList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        
+<!--                    <li class="card-text col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Minha primeira mensagem</h4>
+                        <p class="details col-xs-12 col-sm-12 col-md-12 col-lg-12"><i class="fal fa-bell newMessages"></i> Enviada: 16/06/2018 - 14:00</p>
+                        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        </p>
+                    </li>-->
+                    
+
+                    </ul>
+<!--                    <a href="#" class="card-link waves-effect waves-grey">Gravar mensagem</a>
+                    <a href="#" class="card-link cardClose waves-effect waves-grey">Fechar</a>-->
                 </div>
             </div>
         </div>

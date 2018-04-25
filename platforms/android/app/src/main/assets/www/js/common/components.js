@@ -100,6 +100,9 @@ var startComponents = function () {
                 //$('#btCalendar').on('click', setMessage);
                 $('.btRegister').on('click', registerUser);
                 
+                
+                $('#notificationsIcon').on('click', navigateApp);
+                
                 setSessionContentHeight();
                 sethostHeight();
                 sethostDetailsHeight();
@@ -257,6 +260,14 @@ var navigateApp = function (el, list) {
                 });
             }, time);
             break;
+            
+        case 'notifications':
+            $('.wrapperCard').css('bottom', initPositionMessageBox + 'px');
+            
+            setTimeout(function(){
+                $('.wrapperCard').show();
+            },100);
+            break;
     };
 };
 
@@ -371,7 +382,7 @@ var buildImgPath = function (str) {
     str = str.toString();
     if (str.substring(0, 6) == 'public') {
         //return 'http://187.103.131.250:8086/storage/' + str.substring(6);
-        return 'https://app-events.criarenet.com/storage/' + str.substring(6);
+        return 'https://homo-app-events.criarenet.com/storage/' + str.substring(6);
     } else {
         return str;
     }

@@ -166,7 +166,7 @@ main#panel
 #mainLocale
 {
     font-family: 'Yanone-Regular' !important;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 40px;
     text-align: right;
 }
@@ -189,7 +189,7 @@ main#panel
     position: relative;
     z-index: 9999;
     box-shadow: none;
-    display: table;
+    /*display: table;*/
     width: 100%;
 }
 
@@ -236,7 +236,7 @@ main#panel
     display: inline;
     /*color: #fad67f;*/
     color: #fff;
-    margin-right: 30px;
+    margin-right: 25px;
 }
 
 #menuHome ul li:last-child

@@ -1,6 +1,96 @@
 $(document).ready(function () {
-    $('.cardClose').on('click', showHideCard);
+    
+    var hMessagegBox = ($(window).height() - 30);
+    window.initPositionMessageBox = ((-hMessagegBox)+30);
+    $('.wrapperCard').height(hMessagegBox);
+    $('.wrapperCard ul').height(hMessagegBox-80);
+    $('.wrapperCard').css('bottom', initPositionMessageBox + 'px');
+    
+    getMessagePushList();
+    loadPushs;
+    
+    
+    
+    $('.cardClose').on('click', function(e){
+        //e.preventDefault();
+        if(parseInt($('.wrapperCard').css('bottom')) === initPositionMessageBox){
+            $('.wrapperCard').css('bottom', initPositionMessageBox + 35 + 'px');
+            setTimeout(function(){
+                $('.wrapperCard').hide();
+            },100);
+        }else{
+            $('.wrapperCard').css('bottom', initPositionMessageBox + 'px');
+        }
+        
+        
+//        if($('.cardClose i.fa-times').length){
+//            $('.wrapperCard').css('bottom', 0);
+//            $('.cardClose i.fa-times').removeClass('fa-arrow-from-bottom');
+//            $('.cardClose i.fa-times').addClass('fa-times');
+//        }else{
+//            $('.cardClose i.fa-times').removeClass('fa-times');
+//            $('.cardClose i.fa-times').addClass('fa-arrow-from-bottom');
+//            $('.wrapperCard').css('bottom', initPositionMessageBox + 'px');
+//        }
+        
+        
+    });
 });
+
+var loadPushs = setInterval(function(){
+        getMessagePushList();
+    },30000);
+    
+
+var getMessagePushList = function(){
+
+    if(!window.gTokenSessions){
+        return;
+    }
+    
+    var obj = {
+        url: futureIspApp.url.GET_USER_PUSHS,
+        type: "GET",
+        noLoader: true,
+        auth: gTokenSessions,
+        contentType: 'application/x-www-form-urlencoded',
+        query: ''
+    };
+    
+    request(obj, function (json) {
+        
+        buildMessagePushList('#recivedPushList', json, function(){
+            if(!json[0].pivot.received_at){
+             setTimeout(function () {
+                $('.wrapperCard').fadeIn(200);
+            }, 300);   
+            }
+            
+        });
+    });
+};
+
+var buildMessagePushList = function (id, data, callback) {
+    $(id).html('');
+    $.each(data, function (i, v) {
+        var sended = 'Enviada: ' + moment(v.start_at).format('DD/MM/YYYY - HH:mm');
+        var readMsg = v.pivot.received_at ? 'visualized' : '';
+        
+        var item = '<li data-pudhid="'+v.id+'" class="card-text col-xs-12 col-sm-12 col-md-12 col-lg-12 '+readMsg+'">\n\
+        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+v.title+'</h4>\n\
+        <p class="details col-xs-12 col-sm-12 col-md-12 col-lg-12">\n\
+        <i class="fal fa-bell newMessages"></i>'+sended+'</p>\n\
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+v.body+'</p>\n\
+        </li>';
+
+        $(id).append(item);
+
+    });
+
+    if (callback) {
+        callback();
+    }
+};
 
 
 var recSimpleTokenPush = function () {
@@ -43,20 +133,30 @@ setTimeout(function(){
     
 };
 
+$('#headerCardMsg')[0].addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    console.log(e.touches);
+    var touch = e.touches[0];
+    window.initY = touch.pageY;
+});
+
+$('#headerCardMsg')[0].addEventListener('touchmove', function(e) {
+    var card = $('.wrapperCard')[0];
+    e.preventDefault();
+    var touch = e.touches[0];
+    
+    if(touch.pageY > initY){
+        $(card).css('bottom', initPositionMessageBox + 'px');
+    }else{
+        $(card).css('bottom', 0);
+    }
+    
+}, false);
+
+
 var showHideCard = function (callback) {
     var filters = $('.wrapperCard');
     var classOpen = 'slideInRight animated';
     var classClose = 'slideOutRight animated';
 
-    if (filters.hasClass('slideInRight')) {
-        filters.addClass(classClose);
-        setTimeout(function () {
-            filters.hide();
-            filters.attr('class', 'row');
-        }, 300);
-    } else {
-        filters.show();
-        filters.addClass(classOpen);
-
-    }
 };

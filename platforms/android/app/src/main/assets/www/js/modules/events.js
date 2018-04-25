@@ -36,7 +36,7 @@ var getEventData = function (id) {
 var listEvents = function (id, data, callback) {
     $.each(data, function (i, v) {
         var year = v.start_at.split('-')[0];
-        var nameMaxSize = v.name.substring(0, 25);
+        var nameMaxSize = v.name.substring(0, 20);
         var descriptionMaxSize = v.subtitle.substring(0, 25);
         var src = v.main ? buildImgPath(v.main.path) : 'img/layouts/calendar-evt.jpg';
         if (i) {

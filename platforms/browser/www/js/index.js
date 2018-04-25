@@ -38,6 +38,7 @@ var app = {
 
 //        pictureSource = navigator.camera.PictureSourceType;
 //        destinationType = navigator.camera.DestinationType;
+
         setScreenOrientation('portrait');
         StatusBar.hide();
 
@@ -72,41 +73,7 @@ var app = {
             gPushToken = data.registrationId;
         });
         push.on('notification', function (data) {
-            navigator.notification.alert(
-                    data.message, // message
-                    function () {
-                        buildPushMessage(data)
-                    }, // callback
-                    data.title, // title
-                    'Ok'                  // buttonName
-                    );
-            
-            window.myPushExec = {
-                showMsg: function () {
-                    data.message = 'minha';
-                    buildPushMessage(data)
-                }
-
-            }
-            if (data.message) {
-                myPushExec.showMsg();
-            }
-            
-//            var obj = {};
-//            obj.message = data.message;
-//            obj.title = data.title;
-//            obj.count = data.count;
-//            obj.sound = data.sound;
-//            obj.img = data.image;
-//            obj.additionalData = data.additionalData;
-            
-            
-            //alertInfo(obj.title,obj.message,'success');
-           
-            
-
-
-
+            buildPushMessage(data);
         });
         push.on('error', function (e) {
             // e.message

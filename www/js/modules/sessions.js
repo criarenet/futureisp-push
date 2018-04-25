@@ -32,14 +32,16 @@ var listSessions = function (id, data, callback) {
     
     $.each(data, function (i, v) {
         if (v.featured) {
+            var subTitle = v.subtitle ? v.subtitle.substring(0, 35) : '';
+            var title = v.title ? v.title.substring(0, 30) : '';
             var imgUrl = v.icon ? buildImgPath(v.icon.path) : 'img/layouts/calendar-evt.jpg';
             var firstExhibition = v.dates[0] ? '1ª apresentação - ' + moment(v.dates[0].start_at).format('DD/MM/YYYY - HH:mm') : 'Não há nenhuma data ou hora definida';
             var item = '<li onclick="getSessionById(this)" data-idsession="' + v.id + '">\n\
                     <div style="background-image:url(' + imgUrl + '); background-size: cover;" class="iconList col-xs-4 col-sm-4 col-md-4 col-lg-4">\n\
                     </div><div class="sectionInfo col-xs-8 col-sm-8 col-md-8 col-lg-8">\n\
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textsSections">\n\
-                    <h3>' + v.title + '</h3>\n\
-                    <h4 style="margin-left:10px;">' + v.subtitle.substring(0, 45) + '</h4>\n\
+                    <h3>' + title + '</h3>\n\
+                    <h4 style="margin-left:10px;">' + subTitle + '</h4>\n\
                     <p class="descriptionSection">' + firstExhibition + '</p>\n\
                     <p style="margin-top:10px;" class="descriptionSection"><i style="font-size:16px;" class="fal fa-street-view"></i> - ' + v.local + '</p>\n\
                     </div></div></li>';
@@ -96,8 +98,8 @@ var getSessionById = function (btClicked) {
 };
 
 var printSessionDetails = function(data, callback){
-    console.log(data.lead.path)
-    $('#mainSessionImage').css('background-image', 'url("'+buildImgPath(data.lead.path)+'")');
+    var img = data.lead ? buildImgPath(data.lead.path) : 'img/layouts/calendar-evt.jpg'
+    $('#mainSessionImage').css('background-image', 'url("'+img+'")');
     $('#sessionName h3').html(data.title);
     $('#sessionSubTitle h5').html(data.subtitle);
     $('#descriptionSession p').html(data.long_abstract);
