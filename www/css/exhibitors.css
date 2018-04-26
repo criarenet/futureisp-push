@@ -1,4 +1,4 @@
-#mainExhibitorImage, #mainExhibitorsImage
+#mainExhibitorImage, #mainExhibitorsImage, #mainDeveloperImage
 {
     height: 100px;
     background-size: cover;
@@ -6,7 +6,7 @@
     border-bottom: 1px #fad67f solid; 
 }
 
-#exhibitorName h3
+#exhibitorName h3, #developerName h3
 {
     font-size: 22px;
     color: #fff;

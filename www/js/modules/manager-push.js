@@ -117,7 +117,7 @@ var buildMessagePushList = function (id, data, callback) {
         var readMsg = v.pivot.received_at ? 'visualized' : '';
         
         var item = '<li data-pudhid="'+v.id+'" class="card-text col-xs-12 col-sm-12 col-md-12 col-lg-12 '+readMsg+'">\n\
-        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+v.title+'</h4>\n\
+        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+(readMsg ? v.title : '•'+v.title)+'</h4>\n\
         <p class="details col-xs-12 col-sm-12 col-md-12 col-lg-12">\n\
         <i class="fal fa-bell newMessages"></i>'+sended+'</p>\n\
         <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+v.body+'</p>\n\

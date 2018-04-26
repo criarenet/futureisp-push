@@ -85,7 +85,7 @@ var startComponents = function () {
                 $('#hostsIcon').on('click', navigateApp);
                 $('#btHostsDetails').on('click', showHideHostsDetails);
                 $('#btExhibitorsDetails').on('click', showHideExhibitorsDetails);
-                
+                                
                 $('#mapIcon').on('click', navigateApp);
                 $('#bluePrintIcon').on('click', navigateApp);
                 
@@ -102,6 +102,10 @@ var startComponents = function () {
                 
                 
                 $('#notificationsIcon').on('click', navigateApp);
+                
+                $('.systemVersion').on('click', function(){
+                    cordova.InAppBrowser.open("http://www.criarenet.com/", "_blank", "location=no");
+                });
                 
                 setSessionContentHeight();
                 sethostHeight();

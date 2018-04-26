@@ -517,7 +517,7 @@ main#panel
 
 #wrapperSubscribeForm, #wrapperSessionDetails, #wrapperMapArea, #wrapperBluePrint,
 #wrapperHosts, #wrapperHostsDetails, #wrapperExhibitors, #wrapperExhibitorsDetails,
-#wrapperCalendar
+#wrapperCalendar, #wrapperDeveloperDetails
 {
     position: fixed;
     top: 0;
@@ -536,14 +536,14 @@ main#panel
 
 #wrapperSubscribeForm.slideInLeft, #wrapperSessionDetails.slideInRight, #wrapperMapArea.slideInLeft,
 #wrapperBluePrint.slideInLeft, #wrapperHosts, #wrapperHostsDetails.slideInRight, #wrapperExhibitors,
-#wrapperExhibitorsDetails, #wrapperCalendar, .wrapperCard
+#wrapperExhibitorsDetails, #wrapperCalendar, .wrapperCard, #wrapperDeveloperDetails
 {
     animation-duration: 0.2s;
     
 }
 
 #btSubscribeForm i, #btSessionDetails i, #btMapArea i, #btBluePrint i, #btHosts i,
-#btHostsDetails i, #btExhibitors i, #btExhibitorDetails i, #btCalendar i
+#btHostsDetails i, #btExhibitors i, #btExhibitorDetails i, #btCalendar i, #btDevloperDetails i
 {
     /*color: #e3156a;*/
     color: #fad67f;
@@ -869,4 +869,29 @@ a#openForm, a#closeForm, #btLogout
 {
     font-size: 18px;
     margin-right: 5px;
+}
+
+.systemVersion
+{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: #fad67f !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    padding-right: 20px !important;
+    font-size: 12px;
+}
+
+.systemVersion span
+{
+    color: #fff;
+}
+
+#mainDeveloperImage
+{
+    background: url(../img/logo-criare.png) center center no-repeat;
+    background-size: contain;
 }
