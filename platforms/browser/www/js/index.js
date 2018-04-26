@@ -73,7 +73,8 @@ var app = {
             gPushToken = data.registrationId;
         });
         push.on('notification', function (data) {
-            buildPushMessage(data);
+            //buildPushMessage(data);
+            getMessagePushList();
         });
         push.on('error', function (e) {
             // e.message

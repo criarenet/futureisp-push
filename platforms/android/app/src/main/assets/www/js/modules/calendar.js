@@ -69,9 +69,9 @@ var buildCalendar = function (id, data, listDate, callback) {
                 //<li class="calendDesription">' + (session.short_abstract ? session.short_abstract : 'Em breve traremos mais detalhes.') + '</li>
                 var item = openYear+'<section>\n\
                     <ul data-idsession="' + session.id + '" onclick="getSessionById(this)">\n\
-                    <li class="calendTitle">' + (session.title).substring(0, 35) + '</li>\n\
+                    <li class="calendTitle">' +(session.title ? (session.title).substring(0, 35) : '-') + '</li>\n\
                     <li data-idcalendaritem="' + session.id + '" class="btRegisterSession" onclick="registeSession(this)"><i class="fal fa-plus-circle"></i></li>\n\
-                    <li class="calendSubTitle">' + (session.subtitle).substring(0, 35) + '</li>\n\
+                    <li class="calendSubTitle">' + (session.subtitle ? (session.subtitle).substring(0, 35) : '-') + '</li>\n\
                     <li class="calendLocale"><i style="font-size:16px;" class="fal fa-street-view"></i> - ' + session.local + '</li>\n\
                     </ul>\n\
                     </section>'+closeYear;

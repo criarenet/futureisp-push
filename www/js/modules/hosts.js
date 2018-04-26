@@ -42,7 +42,7 @@ var listHosts = function (id, data, callback) {
                     </div><div class="sectionInfo col-xs-8 col-sm-8 col-md-8 col-lg-8">\n\
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textsSections">\n\
                     <h3 style="margin-top:10px;">'+v.name+'</h3>\n\
-                    <h4 style="margin-left:10px; margin-top:3px;">' + (v.title ? v.title : 'Convidado') + '</h4>\n\
+                    <h4 style="margin-left:10px; margin-top:3px;">' + (v.title ? (v.title).substring(0, 37) : 'Convidado') + '</h4>\n\
                     <p style="margin-top:7px;" class="descriptionSection">' + firstExhibition + '</p>\n\
                     <p style="margin-top:5px;" class="descriptionSection">' + (v.email ? v.email : 'Email não informado.') + '</p>\n\
                     </div></div></li>';

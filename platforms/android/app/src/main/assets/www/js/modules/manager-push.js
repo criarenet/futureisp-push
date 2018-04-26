@@ -40,7 +40,47 @@ $(document).ready(function () {
 var loadPushs = setInterval(function(){
         getMessagePushList();
     },30000);
+
+
+
+var setPushsRead = function(){
+   
+    if(!window.gTokenSessions){
+        return;
+    }
+//    if(!$('#recivedPushList li.visualized').length){
+//        return;
+//    }
+    var query;
     
+    $.each($('#recivedPushList li'), function(i, v){
+        if(!$(v).hasClass('visualized')){
+            var id = $(v).attr('data-pudhid');
+            if(!query){
+                query = '&ids[]=' + id;
+            }else{
+                query += '&ids[]=' + id;
+            }
+        }
+    });
+    
+    if(!query){
+        return;
+    }
+    
+    var obj = {
+        url: futureIspApp.url.SET_PUSHS_READ,
+        type: "POST",
+        noLoader: true,
+        auth: gTokenSessions,
+        contentType: 'application/x-www-form-urlencoded',
+        query: query
+    };
+    
+    request(obj, function (json) {
+        
+    });
+};
 
 var getMessagePushList = function(){
 
@@ -141,6 +181,7 @@ $('#headerCardMsg')[0].addEventListener('touchstart', function(e) {
 });
 
 $('#headerCardMsg')[0].addEventListener('touchmove', function(e) {
+    
     var card = $('.wrapperCard')[0];
     e.preventDefault();
     var touch = e.touches[0];
@@ -149,6 +190,7 @@ $('#headerCardMsg')[0].addEventListener('touchmove', function(e) {
         $(card).css('bottom', initPositionMessageBox + 'px');
     }else{
         $(card).css('bottom', 0);
+        setPushsRead();
     }
     
 }, false);
