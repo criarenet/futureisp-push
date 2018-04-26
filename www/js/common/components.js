@@ -386,7 +386,7 @@ var buildImgPath = function (str) {
     str = str.toString();
     if (str.substring(0, 6) == 'public') {
         //return 'http://187.103.131.250:8086/storage/' + str.substring(6);
-        return 'https://homo-app-events.criarenet.com/storage/' + str.substring(6);
+        return 'https://app-events.criarenet.com/storage/' + str.substring(6);
     } else {
         return str;
     }

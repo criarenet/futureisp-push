@@ -3,8 +3,8 @@ if (!futureIspApp.url){
 };
 
 /*url base do app*/
-var pathApp = 'https://homo-app-events.criarenet.com/api/';
-var pathAppLogin = 'https://homo-app-events.criarenet.com/';
+var pathApp = 'https://app-events.criarenet.com/api/';
+var pathAppLogin = 'https://app-events.criarenet.com/';
 //var pathApp = 'http://187.103.131.250:8086/api/';
 //var pathAppLogin = 'http://187.103.131.250:8086/';
 
