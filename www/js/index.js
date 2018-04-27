@@ -74,6 +74,17 @@ var app = {
         });
         push.on('notification', function (data) {
             //buildPushMessage(data);
+
+            if (!gTokenSessions){
+                var msg = data.message + '<br><br><small><b>Registre-se no nosso App e acesse todas as suas notificações.</b></small>';
+                alertInfo(data.title, msg,'success');
+//                navigator.notification.alert(
+//                        msg, // message
+//                        null, // callback
+//                        data.title, // title
+//                        'Ok'                  // buttonName
+//                        );
+            }
             getMessagePushList();
         });
         push.on('error', function (e) {

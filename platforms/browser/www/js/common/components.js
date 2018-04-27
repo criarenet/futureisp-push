@@ -268,9 +268,17 @@ var navigateApp = function (el, list) {
         case 'notifications':
             $('.wrapperCard').css('bottom', initPositionMessageBox + 'px');
             
-            setTimeout(function(){
-                $('.wrapperCard').show();
-            },100);
+            if(menuClicked !== 'pagAction'){
+                slideout.toggle();
+                setTimeout(function () {
+                    $('.wrapperCard').show();
+                }, 350);
+            }else{
+                setTimeout(function () {
+                    $('.wrapperCard').show();
+                }, 100);
+            }
+            
             break;
     };
 };

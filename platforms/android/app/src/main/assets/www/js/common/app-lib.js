@@ -36,8 +36,14 @@ var request = function (obj, callback) {
                         alertInfo('Ops!','É necessário fazer login novamente','warning');
                     }else{
                         //alert(obj.auth)
-                        getAppToken('');
-                        alertInfo('Ops!','Verifique se você esta conectado na internet e tente novamente.','warning');
+                        
+                        //alert(e.responseJSON.message)
+                        if(e.responseJSON && e.responseJSON.message && e.responseJSON.message == 'Unauthenticated.'){
+                            getAppToken('');
+                            alertInfo('Ops!','Verifique se você esta conectado na internet e tente novamente.','warning');
+                        }else{
+                            alertInfo('Ops!',e.responseJSON.message,'danger');
+                        }
                     }
                 }else if (e.status === 422) {
                     /*msg*/
@@ -51,6 +57,7 @@ var request = function (obj, callback) {
                 }
                 else if (e.status === 0) {
                     /*msg*/
+                    //alert(e.responseJSON.message)
                     alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
                   }
                 
@@ -58,11 +65,13 @@ var request = function (obj, callback) {
  
                     if (obj && obj.errorType === 'login') {
                         /*msg*/
+                        //alert(e.responseJSON.message)
                         alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText + '</b>','danger');
                         
                     }else{
                         /*msg*/
-                        alertInfo('Ops!','Algo deu errado COD: <b>' + e.statusText +'</b>','danger');
+                        //alert(e.responseJSON.message)
+                        alertInfo('Ops!','Algo deu errado: <b>' + e.responseJSON.message +'</b>','danger');
                         
                     }
                 }

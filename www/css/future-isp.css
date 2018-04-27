@@ -862,7 +862,7 @@ a#openForm, a#closeForm, #btLogout
     text-align: center;
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #999;
 }
 
 #btLogout i

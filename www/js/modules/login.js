@@ -12,7 +12,9 @@ var logoutFunction = function(){
         tx.executeSql('DROP TABLE IF EXISTS APPDATABASE');
         tx.executeSql('CREATE TABLE IF NOT EXISTS APPDATABASE (userToken)');
     }, errorCB, successCB);
-    
+    $('.isLoggedHide').show();
+    $('#formAvatar i').css('color', '#fff');
+    $('#subscribeIcon i').css('color', '#fad67f');
     window.gTokenSessions = false;
     toogleDiscoveryForm('close');
     
@@ -132,6 +134,7 @@ var getLoggedUser = function (callback) {
     
     request(obj, function (json) {
         parseToForm('userForm', json);
+        $('.isLoggedHide').hide();
         if(json.avatar){
             $('#formAvatar').css('background-image', 'url("' + json.avatar + '"');
             $('#formAvatar').addClass('whImg');
@@ -142,11 +145,19 @@ var getLoggedUser = function (callback) {
                 'color': 'rgba(0,0,0,.0)',
                 'border': '1px solid #fad67f'
             });
+        }else{
+            $('#formAvatar i').css('color', '#8ff8aa');
+            $('#subscribeIcon i').css('color', '#8ff8aa');
         }
         
         windowLogin = false;
         
         toogleDiscoveryForm();
+        
+        setTimeout(function(){
+            $('.isLoggedHide').hide();
+        },100);
+        
         if (gPushToken) {
             associatePush();
         }
