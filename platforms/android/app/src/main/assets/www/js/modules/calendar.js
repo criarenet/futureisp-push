@@ -1,3 +1,25 @@
+$(document).ready(function () {
+    setTimeout(function(){
+        $('.btDays').on('click', function(){
+            
+            if($(this).hasClass('selected')){
+                return;
+            }
+            
+            $('#timeline').addClass('slideOutLeft animated');
+            setTimeout(function(){
+                $('#timeline').removeClass('slideOutLeft animated');
+                $('#timeline').addClass('slideInRight animated');
+            },200);
+            $('.btDays').removeClass('selected');
+            $('.itemTmline').scrollTop(0);
+            $(this).addClass('selected');
+            var ind = parseInt($(this).attr('data-indday'));
+            buildCalendar('#listCalendarItem', actualCalendarList[eventDays[ind]], eventDays[ind], '');
+        });
+    },1000);
+});
+
 var getCalendar = function(callback){
     
     var idEvent = gMainEvent.id;
@@ -10,6 +32,9 @@ var getCalendar = function(callback){
         contentType:'application/x-www-form-urlencoded',
         query: ''
     };
+
+    $('.btDays').removeClass('selected');
+    $('.btDays:first-child').addClass('selected');
     request(obj, function (json) {
         
         if (json) {
@@ -72,7 +97,7 @@ var buildCalendar = function (id, data, listDate, callback) {
                     <li class="calendTitle">' +(session.title ? (session.title).substring(0, 35) : '-') + '</li>\n\
                     <li data-idcalendaritem="' + session.id + '" class="btRegisterSession" onclick="registeSession(this)"><i class="fal fa-plus-circle"></i></li>\n\
                     <li class="calendSubTitle">' + (session.subtitle ? (session.subtitle).substring(0, 35) : '-') + '</li>\n\
-                    <li class="calendLocale"><i style="font-size:16px;" class="fal fa-street-view"></i> - ' + session.local + '</li>\n\
+                    <li class="calendLocale"><i style="font-size:16px;" class="fal fa-street-view"></i> - ' + (session.local ? session.local : 'A definir') + '</li>\n\
                     </ul>\n\
                     </section>'+closeYear;
                 html = html + item;

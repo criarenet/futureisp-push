@@ -102,7 +102,7 @@ div.itemTmline {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  padding-bottom: 25px;
+  padding-bottom: 70px;
   width: 100%;
 }
 #timeline div:after {
@@ -288,4 +288,31 @@ svg {
     border-bottom: 1px #fad67f solid;
     position: relative;
     z-index: 999;
+}
+
+
+#listDays
+{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    background: #4864B1;
+    z-index: 99999;
+}
+
+#listDays li
+{
+    list-style: none;
+    color: #fad67f;
+    padding: 10px 0 0 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+
+#listDays li.selected
+{
+    border-bottom: 2px solid #fad67f;
 }

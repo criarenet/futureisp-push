@@ -536,7 +536,7 @@ main#panel
 
 #wrapperSubscribeForm.slideInLeft, #wrapperSessionDetails.slideInRight, #wrapperMapArea.slideInLeft,
 #wrapperBluePrint.slideInLeft, #wrapperHosts, #wrapperHostsDetails.slideInRight, #wrapperExhibitors,
-#wrapperExhibitorsDetails, #wrapperCalendar, .wrapperCard, #wrapperDeveloperDetails
+#wrapperExhibitorsDetails, #wrapperCalendar, .wrapperCard, #wrapperDeveloperDetails, #timeline
 {
     animation-duration: 0.2s;
     
