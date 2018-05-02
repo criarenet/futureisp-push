@@ -14,7 +14,9 @@ $(document).ready(function () {
         $('#faceLogin').on('click', function () {
             facebookLogin();
         });
-
+        $('#restMyPassword').on('click', function(){
+            cordova.InAppBrowser.open( futureIspApp.url.RESET_PASSWORD , "_blank", "location=no");
+        });
 //        $('#googleLogin').on('click', function () {
 //            googleLogin('1068750154326-dkcl9une855fd6k3b2jrgf1l5nh58kvv.apps.googleusercontent.com');
 //        });
@@ -104,6 +106,9 @@ var facebookLogin = function () {
                         }
                         $('input[name=name]').val(json.name);
                         $('input[name=email]').val(json.email);
+                        
+                        alertInfo('Ok!','Já temos algumas informações suas. Agora é rápido!<br>Complete seu cadastro.','success');
+                        
                         toogleDiscoveryForm();
                         setTimeout(function () {
                             ref.close();

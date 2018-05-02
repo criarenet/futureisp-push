@@ -111,6 +111,13 @@ var buildCalendar = function (id, data, listDate, callback) {
         setInterval(function(){
             setActualHour();
         },10000);
+    }else {
+        checkMyevents(function () {
+            setInterval(function () {
+                setActualHour();
+            }, 10000);
+            
+        });
     }
 };
 

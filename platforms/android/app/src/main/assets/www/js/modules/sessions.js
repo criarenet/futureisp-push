@@ -26,14 +26,27 @@ var getSessions = function(idEvent, callback){
     });
 };
 
+
+var cutText = function (txt, size) {
+    var cutTxt;
+    if (txt.length >= size) {
+        cutTxt = txt.substring(0, (size-3)) + ' ...';
+        return cutTxt;
+    } else {
+        cutTxt = txt;
+        return cutTxt;
+    }
+};
+
+
 var listSessions = function (id, data, callback) {
     
     $(id).html('');
     
     $.each(data, function (i, v) {
         if (v.featured) {
-            var subTitle = v.subtitle ? v.subtitle.substring(0, 35) : '';
-            var title = v.title ? v.title.substring(0, 30) : '';
+            var subTitle = v.subtitle ? cutText(v.subtitle, 30) : '';
+            var title = v.title ? cutText(v.title, 30) : '';
             var imgUrl = v.icon ? buildImgPath(v.icon.path) : 'img/layouts/calendar-evt.jpg';
             var firstExhibition = v.dates[0] ? '1ª apresentação - ' + moment(v.dates[0].start_at).format('DD/MM/YYYY - HH:mm') : 'Não há nenhuma data ou hora definida';
             var item = '<li onclick="getSessionById(this)" data-idsession="' + v.id + '">\n\
@@ -44,7 +57,9 @@ var listSessions = function (id, data, callback) {
                     <h4 style="margin-left:10px;">' + subTitle + '</h4>\n\
                     <p class="descriptionSection">' + firstExhibition + '</p>\n\
                     <p style="margin-top:10px;" class="descriptionSection"><i style="font-size:16px;" class="fal fa-street-view"></i> - ' + v.local + '</p>\n\
-                    </div></div></li>';
+                    </div></div>\n\
+                    <i class="fal fa-angle-right viewMore"></i>\n\
+                    </li>';
 //'<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 waves-effect waves-grey">\n\
 //<span data-idsession="'+v.id+'">PARTICIPAR</span>\n\
 //</div>'

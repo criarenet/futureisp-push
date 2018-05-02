@@ -404,6 +404,12 @@ main#panel
     margin: 8px 5px 2px 10px;
     padding: 0;
     font-size: 18px;
+    white-space: nowrap;
+}
+
+.sectionList ul li h4
+{
+    white-space: nowrap;
 }
 
 .sectionList ul li p
@@ -433,6 +439,7 @@ main#panel
 .eventList ul li div.iconList
 {
     height: 100%;
+    background-repeat: no-repeat;
     /*border-right: 1px solid #fad67f;*/
 }
 
@@ -530,7 +537,8 @@ main#panel
     /*background: rgba(0, 129, 161,.95)*/
 }
 
-#wrapperSessionDetails, #wrapperSubscribeForm{
+#wrapperSessionDetails, #wrapperSubscribeForm
+{
     z-index: 999999;
 }
 
@@ -848,7 +856,7 @@ button.btRegister {
   background: #E74B37;
 }
 
-a#openForm, a#closeForm, #btLogout
+a#openForm, a#closeForm, #btLogout, #restMyPassword
 {
     font-size: 16px;
     text-decoration: underline;
@@ -857,12 +865,17 @@ a#openForm, a#closeForm, #btLogout
     padding-bottom: 5px;
 }
 
-#btLogout
+#btLogout, #restMyPassword
 {
     text-align: center;
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid #999;
+}
+
+#btLogout
+{
+    display: none;
 }
 
 #btLogout i
@@ -894,4 +907,23 @@ a#openForm, a#closeForm, #btLogout
 {
     background: url(../img/logo-criare.png) center center no-repeat;
     background-size: contain;
+}
+
+#bannerLeed
+{
+    max-height: 100px;
+}
+
+.zoomContainer
+{
+    z-index: 9999999;
+}
+
+i.viewMore
+{
+    position: absolute;
+    right: 5px;
+    font-size: 20px;
+    color: rgba(255,255,255,.3);
+    top: calc(50% - 10px);
 }

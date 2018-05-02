@@ -35,17 +35,23 @@ var listHosts = function (id, data, callback) {
         //var bgImgAvatar = 'style="background-image:url("'+buildImgPath(imgUrl)+'")"';
         //alert(bgImgAvatar)
         var hostDetail = v //$.param(v);
+        
+        var name = v.name ? cutText(v.name, 30) : '';
+        var title = v.title ? cutText(v.title, 35) : 'Convidado';
+        
         var firstExhibition = v.datas[0] ? '1ª apresentação - ' + moment(v.datas[0].start_at).format('DD/MM/YYYY - HH:mm') : 'Não há nenhuma data ou hora definida';
         var item = '<li data-hostdetail="'+hostDetail+'" data-idsession="'+v.id+'" onclick="showHostDetail(this)">\n\
                     <div style=background-image:url("'+imgUrl+'") \n\
                     class="iconList col-xs-4 col-sm-4 col-md-4 col-lg-4">\n\
                     </div><div class="sectionInfo col-xs-8 col-sm-8 col-md-8 col-lg-8">\n\
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textsSections">\n\
-                    <h3 style="margin-top:10px;">'+v.name+'</h3>\n\
-                    <h4 style="margin-left:10px; margin-top:3px;">' + (v.title ? (v.title).substring(0, 37) : 'Convidado') + '</h4>\n\
+                    <h3 style="margin-top:10px;">'+name+'</h3>\n\
+                    <h4 style="margin-left:10px; margin-top:3px;">' + title + '</h4>\n\
                     <p style="margin-top:7px;" class="descriptionSection">' + firstExhibition + '</p>\n\
                     <p style="margin-top:5px;" class="descriptionSection">' + (v.email ? v.email : 'Email não informado.') + '</p>\n\
-                    </div></div></li>';
+                    </div></div>\n\
+                    <i class="fal fa-angle-right viewMore"></i>\n\
+                    </li>';
         
         $(id).append(item);
         

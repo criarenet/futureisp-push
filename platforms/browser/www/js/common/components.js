@@ -77,7 +77,10 @@ var startComponents = function () {
                     setTimeout(function(){$('.hideLoadMap').css('opacity', '0');},250);
                 });
                 
-                $('#btBluePrintDetail').on('click', showHideBluePrintDetail);
+                $('#btBluePrintDetail').on('click', function(){
+                    $('.zoomContainer').hide();
+                    showHideBluePrintDetail()
+                });
                 
                 $('#btBluePrint').on('click', showHideBluePrint);
                 

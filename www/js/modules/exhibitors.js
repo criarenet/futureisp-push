@@ -34,18 +34,23 @@ var listExhibitors = function (id, data, callback) {
         //var firstExhibition = '1ª apresentações - ' + moment(v.start_at).format('DD/MM/YYYY - HH:mm');
         //var bgImgAvatar = 'style="background-image:url("'+buildImgPath(imgUrl)+'")"';
         //alert(bgImgAvatar)
-        console.log(v)
+//        console.log(v)
+
+        var name = v.name ? cutText(v.name, 35) : '';
+        
         var exhibitorDetail = v //$.param(v);
         var item = '<li data-exhibitordetail="'+exhibitorDetail+'" data-idcompany="'+v.id+'" onclick="showExhibitorDetail(this)"  style="min-height:120px;"><div style=background-image:url("'+imgUrl+'") \n\
                     class="iconList col-xs-4 col-sm-4 col-md-4 col-lg-4">\n\
                     </div><div class="sectionInfo col-xs-8 col-sm-8 col-md-8 col-lg-8">\n\
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textsSections">\n\
-                    <h3 style="margin-top:10px;">'+v.name+'</h3>\n\
+                    <h3 style="margin-top:10px;">'+name+'</h3>\n\
                     <h4 style="margin-left:10px; margin-top:15px;"><i style="font-size:16px;" \n\
                     class="fal fa-globe"></i> - ' + (v.site ? v.site : 'Não informado') + '</h4>\n\
                     <h4 style="margin-left:12px; margin-top:12px;"><i style="font-size:16px;" \n\
                     class="fal fa-phone-volume"></i> - ' + (v.phone ? v.phone : 'Não informado') + '</h4>\n\
-                    </div></div></li>';
+                    </div></div>\n\
+                    <i class="fal fa-angle-right viewMore"></i>\n\
+                    </li>';
         
         $(id).append(item);
         

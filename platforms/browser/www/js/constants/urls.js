@@ -40,3 +40,5 @@ futureIspApp.url.ASSOCIATE_PUSH_TOKEN = pathApp + 'token/user';/**/
 futureIspApp.url.GET_USER_PUSHS = pathApp + 'message/view';/**/
 
 futureIspApp.url.SET_PUSHS_READ = pathApp + 'message/mark_as_read';/**/
+
+futureIspApp.url.RESET_PASSWORD = pathAppLogin + 'password/reset';

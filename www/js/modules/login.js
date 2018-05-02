@@ -13,6 +13,7 @@ var logoutFunction = function(){
         tx.executeSql('CREATE TABLE IF NOT EXISTS APPDATABASE (userToken)');
     }, errorCB, successCB);
     $('.isLoggedHide').show();
+    $('#btLogout').hide();
     $('#formAvatar i').css('color', '#fff');
     $('#subscribeIcon i').css('color', '#fad67f');
     window.gTokenSessions = false;
@@ -135,6 +136,7 @@ var getLoggedUser = function (callback) {
     request(obj, function (json) {
         parseToForm('userForm', json);
         $('.isLoggedHide').hide();
+        $('#btLogout').show();
         if(json.avatar){
             $('#formAvatar').css('background-image', 'url("' + json.avatar + '"');
             $('#formAvatar').addClass('whImg');
@@ -156,6 +158,7 @@ var getLoggedUser = function (callback) {
         
         setTimeout(function(){
             $('.isLoggedHide').hide();
+            $('#btLogout').show();
         },100);
         
         if (gPushToken) {

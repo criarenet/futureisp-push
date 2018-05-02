@@ -54,3 +54,21 @@
     font-size: 30px;
     margin: 0 0 0 0;
 }
+
+#imgZoomContainer
+{
+    max-height: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+#infoZoomImg
+{
+    position: absolute;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);
+    bottom: 80px;
+    right: -50px;
+    color: #fff;
+}
