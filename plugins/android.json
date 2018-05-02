@@ -1,46 +1,58 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {}
-  },
-  "installed_plugins": {
-    "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "br.com.futureisp"
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "br.com.futureisp"
+    "config_munge": {
+        "files": {}
     },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "br.com.futureisp"
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        }
     },
-    "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    },
-    "cordova-plugin-vibration": {
-      "PACKAGE_NAME": "br.com.futureisp"
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "br.com.futureisp"
+        }
     }
-  },
-  "dependent_plugins": {
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "br.com.futureisp"
-    }
-  }
 }
