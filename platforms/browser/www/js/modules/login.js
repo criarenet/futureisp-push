@@ -216,13 +216,13 @@ var registerUser = function(){
     
     var query = $('.formApp form').serialize();
     //alert($('#formAvatar').css('background-image').match(/url\("([^)]+)\"/i)[1]);
-    if($('#formAvatar').hasClass('whImg')){
-        if(myAvatar){
-            query += '&avatar=' + myAvatar;
-        }else{
-            query += '&avatar=' + $('#formAvatar').css('background-image').match(/url\("([^)]+)\"/i)[1];
-        }
-    }    
+//    if($('#formAvatar').hasClass('whImg')){
+//        if(myAvatar){
+//            query += '&avatar=' + myAvatar;
+//        }else{
+//            query += '&avatar=' + $('#formAvatar').css('background-image').match(/url\("([^)]+)\"/i)[1];
+//        }
+//    }    
     var url = futureIspApp.url.REGISTER_USER;
     var obj = {
         url: url,
