@@ -100,7 +100,7 @@ var facebookLogin = function () {
                                 'color': 'rgba(0,0,0,.0)',
                                 'border': '1px solid #fad67f'
                             });
-                            
+                            window.avatarFacebook = json.avatar;
                             $('#formAvatar').addClass('whImg');
                             $('#formAvatar i').hide();
                         }

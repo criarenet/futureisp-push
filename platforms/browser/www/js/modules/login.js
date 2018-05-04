@@ -138,12 +138,12 @@ var getLoggedUser = function (callback) {
         $('.isLoggedHide').hide();
         $('#btLogout').show();
         if(json.avatar){
-            $('#formAvatar').css('background-image', 'url("' + json.avatar + '"');
+            $('#formAvatar').css('background-image', 'url("' + decodeURIComponent(json.avatar) + '"');
             $('#formAvatar').addClass('whImg');
             $('#formAvatar i').hide();
 
             $('#subscribeIcon i').css({
-                'background-image': 'url("' + json.avatar + '")',
+                'background-image': 'url("' + decodeURIComponent(json.avatar) + '")',
                 'color': 'rgba(0,0,0,.0)',
                 'border': '1px solid #fad67f'
             });
@@ -216,13 +216,13 @@ var registerUser = function(){
     
     var query = $('.formApp form').serialize();
     //alert($('#formAvatar').css('background-image').match(/url\("([^)]+)\"/i)[1]);
-//    if($('#formAvatar').hasClass('whImg')){
-//        if(myAvatar){
-//            query += '&avatar=' + myAvatar;
-//        }else{
-//            query += '&avatar=' + $('#formAvatar').css('background-image').match(/url\("([^)]+)\"/i)[1];
-//        }
-//    }    
+    if($('#formAvatar').hasClass('whImg')){
+        if(myAvatar){
+            query += '&avatar=' + myAvatar;
+        }else{
+            query += '&avatar=' + encodeURIComponent(avatarFacebook);
+        }
+    }    
     var url = futureIspApp.url.REGISTER_USER;
     var obj = {
         url: url,
