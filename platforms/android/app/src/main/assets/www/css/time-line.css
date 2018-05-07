@@ -87,6 +87,7 @@ div.header h2 {
 div.itemTmline {
   display: flex;
   flex: auto;
+  overflow-x: hidden;
   overflow-y: auto;
   padding: 0;
   color: #fff;

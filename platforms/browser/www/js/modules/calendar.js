@@ -9,7 +9,13 @@ $(document).ready(function () {
             $('#timeline').addClass('slideOutLeft animated');
             setTimeout(function(){
                 $('#timeline').removeClass('slideOutLeft animated');
+            },300)
+            setTimeout(function(){
+                //$('#timeline').removeClass('slideOutLeft animated');
                 $('#timeline').addClass('slideInRight animated');
+                setTimeout(function () {
+                    $('#timeline').removeClass('slideInRight animated');
+                }, 300)
             },200);
             $('.btDays').removeClass('selected');
             $('.itemTmline').scrollTop(0);

@@ -115,6 +115,10 @@ var startComponents = function () {
                 sethostDetailsHeight();
                 setExhibitorHeight();
                 setExhibitorDetailsHeight();
+                
+                slideMenuSize = 20;
+                $('#wrapperHeader').removeClass('menuOff');
+                
             });
         }, 500);
     });
@@ -167,6 +171,7 @@ var navigateApp = function (el, list) {
             break;
             
         case 'eventSchedule':
+            var idEvent = gMainEvent.id;
             getSessions(idEvent, function () {
                 setAppArea(menuClicked, _this, waveTime);
             });
@@ -299,8 +304,11 @@ var setAppArea = function (menuClicked, _this, waveTime) {
                         $('#' + _this).show(1, function () {
                             setEventListHeight(function () {
                                 if (_this == 'home') {
-                                    slideMenuSize = 0;
-                                    $('#wrapperHeader').addClass('menuOff');
+//                                    slideMenuSize = 0;
+//                                    $('#wrapperHeader').addClass('menuOff');
+
+                                    slideMenuSize = 20;
+                                    $('#wrapperHeader').removeClass('menuOff');
                                 } else {
                                     slideMenuSize = 20;
                                     $('#wrapperHeader').removeClass('menuOff');

@@ -48,7 +48,18 @@ var listSessions = function (id, data, callback) {
             var subTitle = v.subtitle ? cutText(v.subtitle, 30) : '';
             var title = v.title ? cutText(v.title, 30) : '';
             var imgUrl = v.icon ? buildImgPath(v.icon.path) : 'img/layouts/calendar-evt.jpg';
-            var firstExhibition = v.dates[0] ? '1ª apresentação - ' + moment(v.dates[0].start_at).format('DD/MM/YYYY - HH:mm') : 'Não há nenhuma data ou hora definida';
+            
+            
+            //console.log(v.dates[0]);
+            
+            var firstExhibition;
+            
+            if(v.dates[0] && v.dates[0].start_at){
+                firstExhibition = '1ª apresentação - ' + moment(v.dates[0].start_at).format('DD/MM/YYYY - HH:mm');
+            }else{
+                firstExhibition = 'Não há data ou hora definida';
+            }
+            
             var item = '<li onclick="getSessionById(this)" data-idsession="' + v.id + '">\n\
                     <div style="background-image:url(' + imgUrl + '); background-size: cover;" class="iconList col-xs-4 col-sm-4 col-md-4 col-lg-4">\n\
                     </div><div class="sectionInfo col-xs-8 col-sm-8 col-md-8 col-lg-8">\n\
