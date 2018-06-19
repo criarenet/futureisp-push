@@ -42,3 +42,5 @@ futureIspApp.url.GET_USER_PUSHS = pathApp + 'message/view';/**/
 futureIspApp.url.SET_PUSHS_READ = pathApp + 'message/mark_as_read';/**/
 
 futureIspApp.url.RESET_PASSWORD = pathAppLogin + 'password/reset';
+
+futureIspApp.url.HIDE_MESSAGE = pathApp + 'message/hide_message';

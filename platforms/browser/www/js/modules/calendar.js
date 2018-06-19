@@ -1,30 +1,34 @@
 $(document).ready(function () {
-    setTimeout(function(){
-        $('.btDays').on('click', function(){
-            
-            if($(this).hasClass('selected')){
+    
+});
+
+var evetBtDays = function () {
+    setTimeout(function () {
+        $('.btDays').on('click', function () {
+
+            if ($(this).hasClass('selected')) {
                 return;
             }
-            
+
             $('#timeline').addClass('slideOutLeft animated');
-            setTimeout(function(){
+            setTimeout(function () {
                 $('#timeline').removeClass('slideOutLeft animated');
-            },300)
-            setTimeout(function(){
+            }, 300)
+            setTimeout(function () {
                 //$('#timeline').removeClass('slideOutLeft animated');
                 $('#timeline').addClass('slideInRight animated');
                 setTimeout(function () {
                     $('#timeline').removeClass('slideInRight animated');
                 }, 300)
-            },200);
+            }, 200);
             $('.btDays').removeClass('selected');
             $('.itemTmline').scrollTop(0);
             $(this).addClass('selected');
             var ind = parseInt($(this).attr('data-indday'));
             buildCalendar('#listCalendarItem', actualCalendarList[eventDays[ind]], eventDays[ind], '');
         });
-    },1000);
-});
+    }, 1000);
+};
 
 var getCalendar = function(callback){
     
@@ -51,8 +55,12 @@ var getCalendar = function(callback){
                 eventDays.push(dayI)
             });
             window.actualCalendarList = json;
+            //console.log(actualCalendarList)
+            buildListButtonsDays(actualCalendarList, function(){
+                buildCalendar('#listCalendarItem', actualCalendarList[eventDays[0]], eventDays[0], callback);
+            });
             //$('#mainHostsImage').css('background-image', 'url("'+buildImgPath(gMainEvent.lead.path)+'")');
-            buildCalendar('#listCalendarItem', actualCalendarList[eventDays[0]], eventDays[0], callback);
+            //buildCalendar('#listCalendarItem', actualCalendarList[eventDays[0]], eventDays[0], callback);
             
         }else{
             window.actualCalendarList = '';
@@ -62,6 +70,30 @@ var getCalendar = function(callback){
 //            callback();
 //        }
     });
+};
+
+var buildListButtonsDays = function (data, callback) {
+    var ind = 0;
+    var list = $('#listDays');
+    list.html('');
+    var sizeItemList = Object.keys(data).length + 1;
+    if (sizeItemList == 1) {
+        var emptyItem = '<li data-indday="" class="btDays col-xs-' + 12 + '\
+ col-sm-' + 12 + ' col-md-' + 12 + ' col-lg-' + 12 + '">Não há horários cadastrados</li>';
+        list.append(emptyItem);
+        /*return;*/
+    }
+    $.each(data, function (i, v) {
+        var day = moment(i).format('DD/MM/YYYY');
+        var li = '<li data-indday="'+ind+'" class="btDays col-xs-'+sizeItemList+'\
+ col-sm-'+sizeItemList+' col-md-'+sizeItemList+' col-lg-'+sizeItemList+'">'+day+'</li>';
+        ind = ind + 1;
+        list.append(li);
+    });
+    evetBtDays();
+    if (callback) {
+        callback();
+    }
 };
 
 var buildCalendar = function (id, data, listDate, callback) {

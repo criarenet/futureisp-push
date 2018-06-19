@@ -550,6 +550,15 @@ main#panel
     
 }
 
+.card-text.fadeOutLeft
+{
+    animation-duration: 0.2s;
+}
+
+.delMsg.fadeInRight{
+    animation-duration: 0.5s;
+}
+
 #btSubscribeForm i, #btSessionDetails i, #btMapArea i, #btBluePrint i, #btHosts i,
 #btHostsDetails i, #btExhibitors i, #btExhibitorDetails i, #btCalendar i, #btDevloperDetails i
 {

@@ -111,27 +111,54 @@ var getMessagePushList = function(){
 };
 
 var buildMessagePushList = function (id, data, callback) {
+    console.log(data[0].pivot.received_at);
+    if ($('#recivedPushList li').length && data[0].pivot.received_at) {
+        return;
+    }
+
     $(id).html('');
     $.each(data, function (i, v) {
         var sended = 'Enviada: ' + moment(v.start_at).format('DD/MM/YYYY - HH:mm');
         var readMsg = v.pivot.received_at ? 'visualized' : '';
-        
-        var item = '<li data-pudhid="'+v.id+'" class="card-text col-xs-12 col-sm-12 col-md-12 col-lg-12 '+readMsg+'">\n\
-        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+(readMsg ? v.title : '•'+v.title)+'</h4>\n\
+
+        var item = '<li data-pudhid="' + v.id + '" class="card-text col-xs-12 col-sm-12 col-md-12 col-lg-12 ' + readMsg + '">\n\
+        <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' + (readMsg ? v.title : '•' + v.title) + '</h4>\n\
         <p class="details col-xs-12 col-sm-12 col-md-12 col-lg-12">\n\
-        <i class="fal fa-bell newMessages"></i>'+sended+'</p>\n\
-        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">'+v.body+'</p>\n\
+        <i class="fal fa-bell newMessages"></i>' + sended + '</p>\n\
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' + v.body + '</p>\n\
+        <span class="delMsg" onclick="delMessage(this)"><i class="fal fa-trash-alt"></i></span>\n\
         </li>';
 
         $(id).append(item);
-
     });
 
     if (callback) {
+        sliderDelEvent();
         callback();
     }
 };
 
+var delMessage = function (bt) {
+
+    var message = $(bt).parent();
+    var id = $(message).attr('data-pudhid');
+    var obj = {
+        url: futureIspApp.url.HIDE_MESSAGE,
+        type: "POST",
+        //noLoader: true,
+        auth: gTokenSessions,
+        contentType: 'application/x-www-form-urlencoded',
+        query: 'id=' + id
+    };
+    request(obj, function (json) {
+        $(message).addClass('fadeOutLeft animated');
+        setTimeout(function () {
+            $(message).remove();
+            alertInfo('Sucesso', 'Mensagem apagada com sucesso.', 'success');
+        }, 350);
+     });
+    
+};
 
 var recSimpleTokenPush = function () {
     var query = 'token='+gPushToken;
@@ -202,3 +229,37 @@ var showHideCard = function (callback) {
     var classClose = 'slideOutRight animated';
 
 };
+
+
+var sliderDelEvent = function () {
+
+    $.each($('#recivedPushList li'), function (i, v) {
+        v.addEventListener('touchstart', function (e) {
+            //e.preventDefault();
+            console.log(e.touches);
+            var touch = e.touches[0];
+            window.initX = touch.pageX;
+        });
+    });
+
+    $.each($('#recivedPushList li'), function (i, v) {
+        v.addEventListener('touchmove', function (e) {
+
+            var card = $('.wrapperCard')[0];
+            var _this = $(this)
+            //e.preventDefault();
+            var touch = e.touches[0];
+//            var str = parseInt(initX) + '---' + parseInt(touch.pageX)
+            if (touch.pageX + 50 < initX) {
+                $('#recivedPushList li').removeClass('deleting');
+                _this.addClass('deleting');
+                _this.children('.delMsg').addClass('fadeInRight animated');
+                
+            } else if(touch.pageX - 50 > initX){
+                _this.removeClass('deleting');
+            }
+
+        });
+    });
+
+}

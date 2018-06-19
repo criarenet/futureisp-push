@@ -1,13 +1,13 @@
 var pictureSource, myAvatar;   // picture source
 var destinationType; // sets the format of returned value
 
-//$(document).ready(function () {
-//    var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
-//    db.transaction(createDB, errorCB, successCB);
-//    getAppToken(getEvents);
-//    getUser(userTrue);
-//    //pushStart();
-//});
+$(document).ready(function () {
+    //var db = window.openDatabase("dbAppFutureIsp", "1.0", "FutureIsp app DB", 200000);
+    //db.transaction(createDB, errorCB, successCB);
+    getAppToken(getEvents);
+    getUser(userTrue);
+    //pushStart();
+});
 //document.addEventListener("deviceready", myActions, false);
 
 function myActions() {
@@ -287,6 +287,12 @@ var navigateApp = function (el, list) {
                 }, 100);
             }
             
+            break;
+        case 'calendar':
+            slideout.toggle();
+            setTimeout(function(){
+                getCalendar(showHideCalendar);
+            },250);
             break;
     };
 };

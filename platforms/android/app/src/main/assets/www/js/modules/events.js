@@ -5,7 +5,7 @@ var getEvents = function(callback){
         //noLoader: true,
         auth: gAuthorization,
         contentType:'application/x-www-form-urlencoded',
-        query: ''
+        query: 'active=1'
     };
     request(obj, function (json) {
         if (json) {

@@ -102,6 +102,11 @@
     color: #888;
 }
 
+#recivedPushList li
+{
+    transition: all 50ms ease-in-out;
+}
+
 #recivedPushList li h4
 {
     padding: 0;
@@ -136,3 +141,35 @@
 {
     /*color: #EF9A9A;*/
 }
+
+#recivedPushList li.deleting
+{
+    margin-left: -60px !important;
+}
+
+#recivedPushList li.deleting.deleted
+{
+    margin-left: -280px !important;
+}
+
+#recivedPushList li .delMsg
+{
+    display: none;
+}
+
+#recivedPushList li.deleting .delMsg{
+    display: block;
+    position: absolute;
+    padding: 0 30px;
+    background: #ffa0a0;
+    color: #fff;
+    right: -60px;
+    bottom: -1px;
+    height: calc(100% + 2px);
+}
+#recivedPushList li.deleting .delMsg i{
+    position: absolute;
+    left: calc(50% - 11px);
+    top: calc(50% - 12px);
+}
+/*<i class="fal fa-trash-alt"></i>*/
